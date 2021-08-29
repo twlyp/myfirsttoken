@@ -1,15 +1,25 @@
-# Basic Sample Hardhat Project
+# Sample ERC20 Token
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts.
-
-Try running some of the following tasks:
+Compile:
 
 ```shell
-npx hardhat accounts
 npx hardhat compile
-npx hardhat clean
+```
+
+Run tests:
+
+```shell
 npx hardhat test
-npx hardhat node
-node scripts/sample-script.js
-npx hardhat help
+```
+
+Deploy:
+
+```shell
+npx hardhat --network NETWORK_NAME scripts/deploy.js
+```
+
+Distribute initial tokens:
+
+```shell
+npx hardhat --network NETWORK_NAME scripts/distributeWealth.js
 ```
