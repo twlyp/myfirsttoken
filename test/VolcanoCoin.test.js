@@ -81,13 +81,6 @@ describe("VolcanoCoin", () => {
   });
 
   describe("payments", () => {
-    it("should show all payments made by the user", async () => {
-      await volcano.transfer(admin.address, toWei(100));
-      await volcano.transfer(addr1.address, toWei(50));
-
-      expect(await volcano.ownPayments()).to.have.length(2);
-    });
-
     it("should allow users to update details on their own payments", async () => {
       await volcano.transfer(addr1.address, toWei(100));
       await volcano.connect(addr1).transfer(admin.address, toWei(50));
@@ -121,11 +114,6 @@ describe("VolcanoCoin", () => {
   });
 
   describe("other functionalities", () => {
-    it("should show the user's balance", async () => {
-      const balance = await volcano.balanceOf(owner.address);
-      expect(await volcano.getOwnBalance()).to.equal(balance);
-    });
-
     it("should allow owner to increase supply", async () => {
       const initialSupply = await volcano.totalSupply();
       await volcano.increaseSupply();

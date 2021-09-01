@@ -39,14 +39,6 @@ contract VolcanoCoin is ERC20, AccessControl {
     mapping(uint => Record) public paymentsFromId;
     
     /**
-     * @dev returns own balance
-     * @return uint current balance of the caller
-     */
-    function getOwnBalance() external view returns (uint){
-        return balanceOf(msg.sender);
-    }
-    
-    /**
      * @dev transfers tokens to the specified address and creates a payment record.
      * @param _to the recipient of the transfer
      * @param _amount the amount transferred
@@ -78,14 +70,6 @@ contract VolcanoCoin is ERC20, AccessControl {
      */
     function increaseSupply() external onlyRole(OWNER_ROLE) {
         _mint(msg.sender, totalSupply());
-    }
-    
-    /**
-     * @dev shows all payments made by the user
-     * @return the array fo Payment elements
-     */
-    function ownPayments() external view returns (Payment[] memory) { 
-        return payments[msg.sender];
     }
     
     /**

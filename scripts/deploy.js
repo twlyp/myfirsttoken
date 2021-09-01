@@ -5,7 +5,6 @@ async function main() {
   // local deployment:
   // const [owner, admin] = await hre.ethers.getSigners();
 
-  // We get the contract to deploy
   const VolcanoCoin = await hre.ethers.getContractFactory("VolcanoCoin");
   const volcano = await VolcanoCoin.deploy(håkon);
 
